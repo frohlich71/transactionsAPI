@@ -11,6 +11,6 @@ public interface TransactionsService {
 	
 	void save (TransactionsVO form);
 	
-	ResponseEntity<?> getTransactions();
+	List<Transaction> getTransactions();
 	
 }

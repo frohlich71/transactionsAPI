@@ -16,7 +16,18 @@ public class TransactionsVO {
 	
 	private BigDecimal price;
 	
+	private String category;
 	
+	public String getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+
 	private String transactionType;
 
 
