@@ -1,5 +1,7 @@
 package com.dtmoney.transactionsapi.service;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +28,15 @@ public class TransactionServiceImpl implements TransactionsService {
 				form.getId(), 
 				form.getDescription(), 
 				form.getPrice(), 
-				form.getTransactionType());
+				form.getTransactionType(),
+				form.getCategory(),
+				new Timestamp(System.currentTimeMillis()));
 		
 		transactionsRepository.save(transaction);
 	}
 	
 	@Override
-	public ResponseEntity<?> getTransactions(){
-		return new ResponseEntity<>(transactionsRepository.findAll(), HttpStatus.OK);
+	public List<Transaction> getTransactions(){
+		return transactionsRepository.findAll();
 	}
 }
