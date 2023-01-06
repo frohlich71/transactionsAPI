@@ -10,10 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 @Entity
 @Table (schema="public", name = "transactions")
@@ -31,7 +28,7 @@ public class Transaction {
 	private BigDecimal price;
 	
 	@Column (name = "transactionType")
-	private String transactionType;
+	private String type;
 	
 	@Column (name = "category")
 	private String category;
@@ -49,13 +46,13 @@ public class Transaction {
 			Long id, 
 			String description, 
 			BigDecimal price, 
-			String transactionType,
+			String type,
 			String category,
 			Timestamp createdAt) {
 		this.id = id;
 		this.description = description;
 		this.price = price;
-		this.transactionType = transactionType;
+		this.type = type;
 		this.category = category;
 		this.createdAt = createdAt;
 	}
@@ -95,12 +92,12 @@ public class Transaction {
 		this.price = price;
 	}
 
-	public String getTransactionType() {
-		return transactionType;
+	public String getType() {
+		return type;
 	}
 
-	public void setTransactionType(String transactionType) {
-		this.transactionType = transactionType;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 
