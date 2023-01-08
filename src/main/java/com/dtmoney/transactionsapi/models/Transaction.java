@@ -57,6 +57,20 @@ public class Transaction {
 		this.createdAt = createdAt;
 	}
 	
+	public Transaction(
+			String description, 
+			BigDecimal price, 
+			String type,
+			String category,
+			Timestamp createdAt) {
+		
+		this.description = description;
+		this.price = price;
+		this.type = type;
+		this.category = category;
+		this.createdAt = createdAt;
+	}
+	
 	
 	public String getCategory() {
 		return category;

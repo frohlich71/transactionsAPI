@@ -1,6 +1,8 @@
 package com.dtmoney.transactionsapi.service;
 
 import java.sql.Timestamp;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,19 +28,24 @@ public class TransactionServiceImpl implements TransactionsService {
 	public void save(TransactionsVO form) {
 		System.out.print(form);
 		Transaction transaction = new Transaction(
-				form.getId(), 
 				form.getDescription(), 
 				form.getPrice(), 
-				form.getTransactionType(),
+				form.getType(),
 				form.getCategory(),
 				new Timestamp(System.currentTimeMillis()));
+		
+		
 		
 		transactionsRepository.save(transaction);
 	}
 	
 	@Override
 	public List<Transaction> getTransactions(){
-		return transactionsRepository.findAll();
+		List<Transaction> transactions = transactionsRepository.findAll();
+		
+		Collections.sort(transactions, Comparator.comparing(Transaction::getCreatedAt, Comparator.nullsFirst(Comparator.naturalOrder())));
+		
+		return transactions;
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })

@@ -6,15 +6,15 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class TransactionsVO {
-	private Long id;
 	
 	
 	private String description;
 	
-	
 	private BigDecimal price;
 	
 	private String category;
+	
+	private String type;
 	
 	public String getCategory() {
 		return category;
@@ -23,19 +23,6 @@ public class TransactionsVO {
 
 	public void setCategory(String category) {
 		this.category = category;
-	}
-
-
-	private String transactionType;
-
-
-	public Long getId() {
-		return id;
-	}
-
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 
@@ -59,13 +46,13 @@ public class TransactionsVO {
 	}
 
 
-	public String getTransactionType() {
-		return transactionType;
+	public String getType() {
+		return type;
 	}
 
 
-	public void setTransactionType(String transactionType) {
-		this.transactionType = transactionType;
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 	
